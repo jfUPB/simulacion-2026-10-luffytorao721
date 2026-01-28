@@ -197,6 +197,8 @@ Para este ejercicio modifiqué una caminata aleatoria tradicional para que utili
 
 **Resultados observados:**
 Tras ejecutar el sketch, el patrón dibujado por el walker muestra trayectorias compactas de puntos interrumpidas por saltos largos que lo llevan a lugares distantes del canvas, lo cual coincide con la idea de vuelo de Lévy para evitar sobreexploración local.
+
+
 ---
 <img width="1660" height="578" alt="image" src="https://github.com/user-attachments/assets/9ea92f67-8f86-4ae1-b71b-ae80eb69162d" />
 
@@ -210,5 +212,6 @@ Tras ejecutar el sketch, el patrón dibujado por el walker muestra trayectorias 
 
 
 ## Bitácora de reflexión
+
 
 
