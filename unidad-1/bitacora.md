@@ -266,9 +266,82 @@ Antes de ejecutar el sketch, esperaba observar una **curva que se mueve de maner
 
 ## Bitácora de aplicación 
 
+let particles = [];
+let t = 0;
+
+function setup() {
+  createCanvas(800, 500);
+  background(0);
+
+  for (let i = 0; i < 150; i++) {
+    particles.push(new Particle());
+  }
+}
+
+function draw() {
+  background(0, 10); // deja estela tipo luz de concierto
+
+  for (let p of particles) {
+    p.move();
+    p.show();
+  }
+
+  t += 0.005;
+}
+
+// Interacción con teclado
+function keyPressed() {
+  if (key === ' ') {
+    particles = [];
+    for (let i = 0; i < 150; i++) {
+      particles.push(new Particle());
+    }
+  }
+}
+
+class Particle {
+  constructor() {
+    this.x = random(width);
+    this.y = random(height);
+    this.size = random(6,12);
+
+    this.col = color(
+      random(100, 255),
+      random(100, 255),
+      random(100, 255),
+      180
+    );
+  }
+
+  move() {
+    // Movimiento suave con ruido Perlin
+    let angle = noise(this.x * 0.002, this.y * 0.002, t) * TWO_PI * 2;
+    let speed = map(dist(mouseX, mouseY, this.x, this.y), 0, width, 2, 0.3);
+
+    this.x += cos(angle) * speed;
+    this.y += sin(angle) * speed;
+
+    // Lévy flight: salto raro e inesperado
+    if (random(1) < 0.01) {
+      this.x += random(-150, 150);
+      this.y += random(-150, 150);
+    }
+
+    // Mantener en pantalla
+    this.x = (this.x + width) % width;
+    this.y = (this.y + height) % height;
+  }
+
+  show() {
+    noStroke();
+    fill(this.col);
+    ellipse(this.x, this.y, this.size);
+  }
+}
 
 
 ## Bitácora de reflexión
+
 
 
 
