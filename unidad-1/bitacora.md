@@ -118,10 +118,97 @@ function draw() {
 
 <img width="748" height="428" alt="image" src="https://github.com/user-attachments/assets/bf52e699-3352-42f9-9531-d154f54e341a" />
 
+---
+
+## **Actividad 5**
+
+### ¿Qué es un vuelo de Lévy y por qué usarlo?
+
+Un **vuelo de Lévy** es una caminata aleatoria donde **la mayoría de los pasos son pequeños, pero ocasionalmente hay pasos muy grandes**. Esto significa que el caminante explora localmente con pasos cortos, pero de vez en cuando salta muy lejos, lo que reduce la probabilidad de volver repetidamente a la misma zona (*oversampling*).
+
+Usé esta técnica porque permite explorar el espacio de forma más eficiente que una caminata totalmente uniforme, ya que combina movimientos pequeños frecuentes con movimientos largos raros. *Esperaba observar un patrón de rastros donde el walker a veces se queda cerca de su posición pero también realiza saltos largos a otras áreas del canvas.
+
+---
+
+## 💻 Código (p5.js): Lévy flight sobre caminata aleatoria
+
+
+```js
+let walker;
+
+function setup() {
+  createCanvas(640, 360);
+  background(255);
+  walker = new Walker();
+}
+
+function draw() {
+  walker.step();
+  walker.show();
+}
+
+class Walker {
+  constructor() {
+    this.x = width / 2;
+    this.y = height / 2;
+  }
+
+  show() {
+    stroke(0, 20);
+    strokeWeight(2);
+    square(this.x,5, this.y,5);
+  }
+
+  step() {
+    // Probabilidad para grandes pasos
+    let r = random(1);
+
+    let xstep, ystep;
+
+    // 1% de probabilidad de un gran salto
+    if (r < 0.01) {
+      xstep = random(-100, 100);
+      ystep = random(-100, 100);
+    } else {
+      // normalmente pasos pequeños
+      xstep = random(-2, 2);
+      ystep = random(-2, 2);
+    }
+
+    this.x += xstep;
+    this.y += ystep;
+
+    // Limitar a bordes
+    this.x = constrain(this.x, 0, width);
+    this.y = constrain(this.y, 0, height);
+  }
+}
+
+```
+
+### 🧩 Cómo funciona este código
+
+* Cada ciclo el walker toma un paso; la mayoría son **pequeños** (movimiento local), pero con **1 % de probabilidad** puede dar un salto grande (vuelo de Lévy). 
+* El resultado visual será un camino extenso con agrupamientos locales y ocasionales saltos grandes.
+
+**Descripción de la técnica utilizada y expectativas:**
+
+Para este ejercicio modifiqué una caminata aleatoria tradicional para que utilice una **distribución personalizada de movimientos inspirada en un vuelo de Lévy**, donde hay una pequeña probabilidad de dar pasos muy largos y una gran probabilidad de dar pasos pequeños. Esta técnica permite que el caminante explore ampliamente el espacio y no se quede únicamente cerca de su posición inicial, porque los pasos largos rompen la repetición local y llevan al walker a nuevas regiones. Esperaba que al ejecutar el código el patrón visual mostrara zonas densamente recorridas con trazos locales, intercalados con saltos que llevan el walker a otras partes del canvas.
+
+**Resultados observados:**
+Tras ejecutar el sketch, el patrón dibujado por el walker muestra trayectorias compactas de puntos interrumpidas por saltos largos que lo llevan a lugares distantes del canvas, lo cual coincide con la idea de vuelo de Lévy para evitar sobreexploración local.
+---
+<img width="1660" height="578" alt="image" src="https://github.com/user-attachments/assets/9ea92f67-8f86-4ae1-b71b-ae80eb69162d" />
+
+
+---
+
+
 
 ## Bitácora de aplicación 
 
 
 
 ## Bitácora de reflexión
+
 
