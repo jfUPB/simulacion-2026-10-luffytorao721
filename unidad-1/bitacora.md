@@ -68,7 +68,6 @@ Con esta modificación, aunque cada paso sigue siendo aleatorio, el recorrido to
 ---
 
 ## **Actividad 4**
-Aquí tienes una **explicación clara de lo que pide la actividad** y un ejemplo de **código para representar una distribución normal en p5.js**, que puedes pegar directamente en tu bitácora y usar como base para tu sketch.
 
 
 ### ¿Qué es una distribución normal?
@@ -130,7 +129,7 @@ Usé esta técnica porque permite explorar el espacio de forma más eficiente qu
 
 ---
 
-## 💻 Código (p5.js): Lévy flight sobre caminata aleatoria
+## Código (p5.js): Lévy flight sobre caminata aleatoria
 
 
 ```js
@@ -186,7 +185,7 @@ class Walker {
 
 ```
 
-### 🧩 Cómo funciona este código
+### Cómo funciona este código
 
 * Cada ciclo el walker toma un paso; la mayoría son **pequeños** (movimiento local), pero con **1 % de probabilidad** puede dar un salto grande (vuelo de Lévy). 
 * El resultado visual será un camino extenso con agrupamientos locales y ocasionales saltos grandes.
@@ -205,6 +204,64 @@ Tras ejecutar el sketch, el patrón dibujado por el walker muestra trayectorias 
 
 ---
 
+** Actividad 6**
+
+###
+El **ruido Perlin** es un tipo de ruido continuo que produce valores aleatorios de forma suave y correlacionada, lo que significa que los números cercanos en el espacio o en el tiempo tienen valores similares. A diferencia del ruido completamente aleatorio (que salta abruptamente de un valor a otro), el ruido Perlin genera variaciones suaves que se ven “orgánicas” o naturales, como las texturas de nubes o terrenos ondulados, porque no cambia de forma caótica de un punto a otro.
+
+
+##  Sketch en p5.js para visualizar ruido Perlin
+
+```js
+let xOff = 0;   // desplazamiento para animar en el tiempo
+
+function setup() {
+  createCanvas(720, 360);
+  background(255);
+}
+
+function draw() {
+  background(255);
+
+
+
+  fill(50, 100, 200);
+  stroke(50, 100, 200);
+  strokeWeight(1);
+
+  beginShape();
+  let xoff = 0; // desplazamiento para cada punto en x
+
+  for (let x = 0; x <= width; x += 5) {
+    // Generamos un valor de ruido entre 0 y 1 y lo mapeamos a la altura
+    let y = map(noise(xoff, xOff), 0, 1, 50, height - 50);
+    vertex(x, y);
+    xoff += 0.02;
+  }
+
+  endShape();
+
+  // Animar el ruido con el tiempo
+  xOff += 0.01;
+}
+ 
+```
+
+---
+
+## Qué hace este sketch
+
+* Utiliza la función `noise()` de p5.js para obtener valores de ruido Perlin.
+* Recorre el ancho del canvas y dibuja una **curva suave** cuyos valores en y están determinados por el ruido.
+* La variable `xOff` anima la gráfica con el tiempo, generando una onda que fluye lentamente.
+* Al ejecutar, ves una curva ondulada y continua, con variaciones suaves en lugar de saltos abruptos.
+
+
+Antes de ejecutar el sketch, esperaba observar una **curva que se mueve de manera suave y fluida**, sin cambios bruscos entre un punto y el siguiente. Pensé que, a diferencia de un ruido completamente aleatorio, el patrón se vería más “natural”, con transiciones graduales en la altura de la línea. Esperaba también que al avanzar el tiempo (a medida que `xOff` aumenta), la onda pareciera desplazarse o transformarse lentamente, manteniendo siempre esa continuidad característica del ruido Perlin, después le puse un fill a una linea y se veía chistoso.
+
+---
+<img width="1919" height="768" alt="image" src="https://github.com/user-attachments/assets/9fc4a4f1-5b2d-44a2-9c2b-ea667a8a8951" />
+
 
 
 ## Bitácora de aplicación 
@@ -212,6 +269,7 @@ Tras ejecutar el sketch, el patrón dibujado por el walker muestra trayectorias 
 
 
 ## Bitácora de reflexión
+
 
 
 
