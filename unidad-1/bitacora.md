@@ -345,15 +345,22 @@ Perfecto, acá va **un texto continuo que explica el código**, pensado para **b
 
 ## Explicación del código
 
-El código desarrolla una obra de **arte generativo basada en un sistema de partículas**, donde cada partícula funciona como un agente autónomo con propiedades propias como posición, tamaño y color. Al iniciar el programa se crea un conjunto de partículas con valores aleatorios, lo que establece condiciones iniciales variables y garantiza que cada ejecución del sketch sea diferente. Esta aleatoriedad inicial es fundamental para evitar resultados repetitivos y reforzar el carácter generativo de la obra.
+El código desarrolla una obra de **arte generativo basada en un sistema de partículas**, donde cada partícula funciona como un agente autónomo con propiedades propias como posición, tamaño y color. Al iniciar el 
+programa se crea un conjunto de partículas con valores aleatorios, lo que establece condiciones iniciales variables y garantiza que cada ejecución del sketch sea diferente. Esta aleatoriedad inicial es fundamental 
+para evitar resultados repetitivos y reforzar el carácter generativo de la obra.
 
-El movimiento de las partículas está gobernado principalmente por **ruido Perlin**, que produce una aleatoriedad continua y correlacionada en el espacio y en el tiempo. En lugar de desplazarse de forma caótica, las partículas siguen trayectorias suaves y orgánicas, similares a corrientes de viento o flujos líquidos. El uso del tiempo como tercera dimensión del ruido permite que el campo de fuerzas evolucione gradualmente, generando animación constante sin cortes abruptos.
+El movimiento de las partículas está gobernado principalmente por **ruido Perlin**, que produce una aleatoriedad continua y correlacionada en el espacio y en el tiempo. En lugar de desplazarse de forma caótica, 
+las partículas siguen trayectorias suaves y orgánicas, similares a corrientes de viento o flujos líquidos. El uso del tiempo como tercera dimensión del ruido permite que el campo de fuerzas evolucione gradualmente, 
+generando animación constante sin cortes abruptos.
 
-La velocidad de cada partícula depende de su distancia al cursor del mouse, incorporando **interacción del usuario** dentro del sistema. Esta relación espacial permite que el espectador influya en el comportamiento global sin controlar directamente a las partículas, transformándolo en un participante activo del proceso generativo.
+La velocidad de cada partícula depende de su distancia al cursor del mouse, incorporando **interacción del usuario** dentro del sistema. Esta relación espacial permite que el espectador influya en el comportamiento
+global sin controlar directamente a las partículas, transformándolo en un participante activo del proceso generativo.
 
-Para evitar que el movimiento resulte demasiado uniforme o predecible, el código introduce de manera poco frecuente un **salto aleatorio tipo Lévy flight**. Estos desplazamientos largos e inesperados rompen la continuidad del flujo generado por el ruido Perlin y añaden sorpresa visual, contraste y dinamismo al sistema, enriqueciendo la composición final.
+Para evitar que el movimiento resulte demasiado uniforme o predecible, el código introduce de manera poco frecuente un **salto aleatorio tipo Lévy flight**. Estos desplazamientos largos e inesperados rompen la continuidad 
+del flujo generado por el ruido Perlin y añaden sorpresa visual, contraste y dinamismo al sistema, enriqueciendo la composición final.
 
-Visualmente, la obra utiliza un fondo con transparencia que no se limpia completamente en cada cuadro, generando **estelas** que registran el recorrido de las partículas a lo largo del tiempo. Este recurso hace visible el paso del tiempo y enfatiza el movimiento por encima de la forma individual. Finalmente, las partículas reaparecen por el lado opuesto al salir del lienzo, creando un espacio continuo sin bordes abruptos y reforzando la sensación de un sistema infinito y autosostenido.
+Visualmente, la obra utiliza un fondo con transparencia que no se limpia completamente en cada cuadro, generando **estelas** que registran el recorrido de las partículas a lo largo del tiempo. Este recurso hace visible el 
+paso del tiempo y enfatiza el movimiento por encima de la forma individual. Finalmente, las partículas reaparecen por el lado opuesto al salir del lienzo, creando un espacio continuo sin bordes abruptos y reforzando la sensación de un sistema infinito y autosostenido.
 
 
 
@@ -364,6 +371,7 @@ Visualmente, la obra utiliza un fondo con transparencia que no se limpia complet
 ## Bitácora de reflexión
 
 Entendí que **random()** genera valores totalmente independientes y abruptos, ideales cuando busco caos puro, saltos inesperados o variaciones sin continuidad, mientras que el **ruido Perlin (noise())** produce una aleatoriedad suave y correlacionada, más adecuada para simular fenómenos naturales como movimiento orgánico, humo o flujos, por eso en la Actividad 07 lo usé para dirigir el desplazamiento continuo de las partículas; una **distribución de probabilidad** describe qué tan probable es que aparezcan ciertos valores y visualmente una caminata con distribución **uniforme** se ve más dispersa y errática, mientras que una **normal** tiende a concentrar los movimientos cerca de un promedio, generando recorridos más densos y equilibrados; la aleatoriedad en el **arte generativo** cumple funciones como introducir variación (para que cada ejecución sea única) y simular comportamientos naturales imposibles de coreografiar a mano; en mi obra final usé un **Lévy flight** como evento aleatorio poco frecuente para romper la suavidad del ruido Perlin y añadir sorpresa visual, lo cual fue clave para evitar un movimiento demasiado predecible; finalmente, una **caminata (walk)** es un proceso donde la posición cambia paso a paso según reglas probabilísticas, y la caminata tipo **Lévy flight** se caracteriza por muchos pasos cortos combinados con saltos largos y raros, generando patrones dinámicos y expresivos.
+
 
 
 
