@@ -339,8 +339,12 @@ class Particle {
   }
 }
 
+<img width="1694" height="661" alt="image" src="https://github.com/user-attachments/assets/ae50293b-9ff4-4271-a0c5-31655d7a01ac" />
+
 
 ## Bitácora de reflexión
+
+Entendí que **random()** genera valores totalmente independientes y abruptos, ideales cuando busco caos puro, saltos inesperados o variaciones sin continuidad, mientras que el **ruido Perlin (noise())** produce una aleatoriedad suave y correlacionada, más adecuada para simular fenómenos naturales como movimiento orgánico, humo o flujos, por eso en la Actividad 07 lo usé para dirigir el desplazamiento continuo de las partículas; una **distribución de probabilidad** describe qué tan probable es que aparezcan ciertos valores y visualmente una caminata con distribución **uniforme** se ve más dispersa y errática, mientras que una **normal** tiende a concentrar los movimientos cerca de un promedio, generando recorridos más densos y equilibrados; la aleatoriedad en el **arte generativo** cumple funciones como introducir variación (para que cada ejecución sea única) y simular comportamientos naturales imposibles de coreografiar a mano; en mi obra final usé un **Lévy flight** como evento aleatorio poco frecuente para romper la suavidad del ruido Perlin y añadir sorpresa visual, lo cual fue clave para evitar un movimiento demasiado predecible; finalmente, una **caminata (walk)** es un proceso donde la posición cambia paso a paso según reglas probabilísticas, y la caminata tipo **Lévy flight** se caracteriza por muchos pasos cortos combinados con saltos largos y raros, generando patrones dinámicos y expresivos.
 
 
 
