@@ -266,6 +266,9 @@ Antes de ejecutar el sketch, esperaba observar una **curva que se mueve de maner
 
 ## Bitácora de aplicación 
 
+Una obra generativa es una pieza artística creada a partir de un sistema de reglas programadas por el autor, donde el resultado final no está completamente predeterminado, sino que emerge de la interacción entre algoritmos, aleatoriedad y, en algunos casos, la participación del usuario. En este tipo de obras, el artista diseña el proceso más que la imagen final, permitiendo que cada ejecución sea única. La aleatoriedad controlada, el tiempo y la repetición juegan un papel fundamental, ya que introducen variación, imprevisibilidad y comportamientos orgánicos que simulan dinámicas naturales o complejas.
+
+```js
 let particles = [];
 let t = 0;
 
@@ -279,7 +282,7 @@ function setup() {
 }
 
 function draw() {
-  background(0, 10); // deja estela tipo luz de concierto
+  background(0, 10);
 
   for (let p of particles) {
     p.move();
@@ -289,7 +292,6 @@ function draw() {
   t += 0.005;
 }
 
-// Interacción con teclado
 function keyPressed() {
   if (key === ' ') {
     particles = [];
@@ -304,7 +306,6 @@ class Particle {
     this.x = random(width);
     this.y = random(height);
     this.size = random(6,12);
-
     this.col = color(
       random(100, 255),
       random(100, 255),
@@ -314,20 +315,17 @@ class Particle {
   }
 
   move() {
-    // Movimiento suave con ruido Perlin
     let angle = noise(this.x * 0.002, this.y * 0.002, t) * TWO_PI * 2;
     let speed = map(dist(mouseX, mouseY, this.x, this.y), 0, width, 2, 0.3);
 
     this.x += cos(angle) * speed;
     this.y += sin(angle) * speed;
 
-    // Lévy flight: salto raro e inesperado
     if (random(1) < 0.01) {
       this.x += random(-150, 150);
       this.y += random(-150, 150);
     }
 
-    // Mantener en pantalla
     this.x = (this.x + width) % width;
     this.y = (this.y + height) % height;
   }
@@ -339,6 +337,26 @@ class Particle {
   }
 }
 
+}
+```
+Perfecto, acá va **un texto continuo que explica el código**, pensado para **bitácora**, con foco en **conceptos** y no en el detalle técnico línea por línea.
+
+---
+
+## Explicación del código
+
+El código desarrolla una obra de **arte generativo basada en un sistema de partículas**, donde cada partícula funciona como un agente autónomo con propiedades propias como posición, tamaño y color. Al iniciar el programa se crea un conjunto de partículas con valores aleatorios, lo que establece condiciones iniciales variables y garantiza que cada ejecución del sketch sea diferente. Esta aleatoriedad inicial es fundamental para evitar resultados repetitivos y reforzar el carácter generativo de la obra.
+
+El movimiento de las partículas está gobernado principalmente por **ruido Perlin**, que produce una aleatoriedad continua y correlacionada en el espacio y en el tiempo. En lugar de desplazarse de forma caótica, las partículas siguen trayectorias suaves y orgánicas, similares a corrientes de viento o flujos líquidos. El uso del tiempo como tercera dimensión del ruido permite que el campo de fuerzas evolucione gradualmente, generando animación constante sin cortes abruptos.
+
+La velocidad de cada partícula depende de su distancia al cursor del mouse, incorporando **interacción del usuario** dentro del sistema. Esta relación espacial permite que el espectador influya en el comportamiento global sin controlar directamente a las partículas, transformándolo en un participante activo del proceso generativo.
+
+Para evitar que el movimiento resulte demasiado uniforme o predecible, el código introduce de manera poco frecuente un **salto aleatorio tipo Lévy flight**. Estos desplazamientos largos e inesperados rompen la continuidad del flujo generado por el ruido Perlin y añaden sorpresa visual, contraste y dinamismo al sistema, enriqueciendo la composición final.
+
+Visualmente, la obra utiliza un fondo con transparencia que no se limpia completamente en cada cuadro, generando **estelas** que registran el recorrido de las partículas a lo largo del tiempo. Este recurso hace visible el paso del tiempo y enfatiza el movimiento por encima de la forma individual. Finalmente, las partículas reaparecen por el lado opuesto al salir del lienzo, creando un espacio continuo sin bordes abruptos y reforzando la sensación de un sistema infinito y autosostenido.
+
+
+
 <img width="1694" height="661" alt="image" src="https://github.com/user-attachments/assets/ae50293b-9ff4-4271-a0c5-31655d7a01ac" />
 
 ### *https://editor.p5js.org/luffytorao721/sketches/YQgFRG5n-*
@@ -346,6 +364,7 @@ class Particle {
 ## Bitácora de reflexión
 
 Entendí que **random()** genera valores totalmente independientes y abruptos, ideales cuando busco caos puro, saltos inesperados o variaciones sin continuidad, mientras que el **ruido Perlin (noise())** produce una aleatoriedad suave y correlacionada, más adecuada para simular fenómenos naturales como movimiento orgánico, humo o flujos, por eso en la Actividad 07 lo usé para dirigir el desplazamiento continuo de las partículas; una **distribución de probabilidad** describe qué tan probable es que aparezcan ciertos valores y visualmente una caminata con distribución **uniforme** se ve más dispersa y errática, mientras que una **normal** tiende a concentrar los movimientos cerca de un promedio, generando recorridos más densos y equilibrados; la aleatoriedad en el **arte generativo** cumple funciones como introducir variación (para que cada ejecución sea única) y simular comportamientos naturales imposibles de coreografiar a mano; en mi obra final usé un **Lévy flight** como evento aleatorio poco frecuente para romper la suavidad del ruido Perlin y añadir sorpresa visual, lo cual fue clave para evitar un movimiento demasiado predecible; finalmente, una **caminata (walk)** es un proceso donde la posición cambia paso a paso según reglas probabilísticas, y la caminata tipo **Lévy flight** se caracteriza por muchos pasos cortos combinados con saltos largos y raros, generando patrones dinámicos y expresivos.
+
 
 
 
