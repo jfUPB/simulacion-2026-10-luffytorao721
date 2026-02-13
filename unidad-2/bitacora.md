@@ -23,7 +23,7 @@ Es una exploración artística de cómo el comportamiento (movimiento) y la apar
 
 ---
 
-# Regla aplicada para la aceleración
+### Regla aplicada para la aceleración
 
 La regla principal es:
 
@@ -53,7 +53,7 @@ Esto permite que el comportamiento emerja naturalmente.
 
 ---
 
-# Cómo funciona el código
+### Cómo funciona el código
 
 ## Sistema de partículas
 
@@ -126,7 +126,7 @@ Esto demuestra separación entre:
 
 ---
 
-# Código completo de la aplicación
+### Código completo de la aplicación
 
 ```javascript
 let particles = [];
@@ -244,7 +244,7 @@ Sistemas emergentes.
 
 - La aceleración depende de la distancia entre partículas.
 
-## Regla de aceleración
+### Regla de aceleración
 
 Para cada partícula:
 
@@ -255,3 +255,6 @@ Para cada partícula:
 - Si está lejos → no afecta.
 
 - Esto genera clústeres dinámicos.
+
+
+https://editor.p5js.org/luffytorao721/sketches/eSRq2bao5 
