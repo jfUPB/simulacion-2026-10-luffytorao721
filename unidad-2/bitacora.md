@@ -221,3 +221,37 @@ class Particle {
 
 
 ## Bitácora de reflexión
+
+### Concepto de la obra
+
+Nombre: “Uniiverso orbitante”
+
+La obra simula un sistema donde partículas:
+
+- Se atraen si están cerca.
+
+- Se repelen si están demasiado juntas.
+
+- Mantienen una distancia social ideal.
+
+### Inspiración conceptual:
+
+Sistemas emergentes.
+
+- Comportamiento colectivo.
+
+- Autoorganización.
+
+- La aceleración depende de la distancia entre partículas.
+
+## Regla de aceleración
+
+Para cada partícula:
+
+- Si otra está muy cerca → repulsión.
+
+- Si está a distancia media → ligera atracción.
+
+- Si está lejos → no afecta.
+
+- Esto genera clústeres dinámicos.
