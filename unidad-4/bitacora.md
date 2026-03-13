@@ -447,3 +447,38 @@ function keyPressed() {
 https://editor.p5js.org/luffytorao721/sketches/i8PJtN8w5 ejemplo con musica descargada
 
 ## Bitácora de reflexión
+
+### Unidad 1 – Fundamentos
+
+Variables y tipos de datos
+
+Aleatoriedad y selección aleatoria
+
+
+### Unidad 2 – Motion 101
+
+Vectores: posición, velocidad, aceleración
+
+Update loop: pos += vel, vel += acc
+
+Movimiento básico (lineal y continuo)
+
+### Unidad 3 – Fuerzas
+
+Aceleración por fuerzas externas
+
+Atracción, repulsión
+
+Interacción con usuario (mouse, teclado)
+
+### Unidad 4 – Movimiento angular y oscilatorio
+
+Movimiento armónico simple (sin, cos)
+
+Ángulos y coordenadas polares
+
+Ondas y resortes
+
+Sonido interactivo (p5.sound)
+
+Sincronización visual y sonora
