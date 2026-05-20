@@ -12,4 +12,9 @@ Avance movimiento Futuristico en perspectiva.
 https://github.com/user-attachments/assets/f4f6aff6-0e1b-4c2f-965a-4f96569f05af
 
 
+https://github.com/user-attachments/assets/0de6be17-58ca-412a-a40b-a5f49dd9dd25
+
+
+
+
 ## Bitácora de reflexión
